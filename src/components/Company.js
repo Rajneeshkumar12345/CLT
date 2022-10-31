@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import { useLocalStorage } from "./useLocalStorage";
 
 function Company() {
-  const localNotes = localStorage.getItem("notes")
-   const[notes, setNotes] =useState(localNotes);
+  // const localNotes = localStorage.getItem("notes")
+  //  const[notes, setNotes] =useState(localNotes);
 
-   const handleChange = e => {
-    localStorage.setItem("notes", e.target.value);
-    setNotes(e.target.value);
-   }
+  //  const handleChange = e => {
+  //   localStorage.setItem("notes", e.target.value);
+  //   setNotes(e.target.value);
+  //  }
+
+  const[name, setName] = useState("name2", "");
+  const[checked, setChecked] = useLocalStorage(false);
+
   return (
     <>
       <div className="Company" style={{ backgroundColor: "#6df7d2" }}>
@@ -33,8 +38,8 @@ function Company() {
                   id="exampleFormControlTextarea1"
                   placeholder="Messege"
                   rows="4"
-                  value={notes}
-                  onChange={handleChange}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   required
                   style={{ backgroundColor: "#f7abf0" }}
                 ></textarea>
