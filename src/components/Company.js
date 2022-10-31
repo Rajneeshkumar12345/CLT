@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-//import { useLocalStorage } from "./useLocalStorage";
+import React  from "react";
+import { useLocalStorage } from "./useLocalStorage";
 
 function Company() {
   // const localNotes = localStorage.getItem("notes")
@@ -10,7 +10,7 @@ function Company() {
   //   setNotes(e.target.value);
   //  }
 
-  const[name, setName] = useState("");
+  const [name, setName] = useLocalStorage("name", "");
   //const[checked, setChecked] = useLocalStorage(false);
 
   return (
@@ -27,22 +27,27 @@ function Company() {
             <div className="col-md-12 col-sm-12">
               <img
                 src="/Profile.jpg"
+                alt="profile"
                 className="text-center img-fluid mt-5"
                 style={{ width: "100%" }}
               ></img>
             </div>
             <div className="about_company col-md-12">
               <div className="form-group py-3">
+                <form>
                 <textarea
                   className="form-control mt-2"
                   id="exampleFormControlTextarea1"
-                  placeholder="Messege"
+                  placeholder="Message"
                   rows="4"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
                   style={{ backgroundColor: "#f7abf0" }}
                 ></textarea>
+                <input type="submit" value="Submit"></input>
+                </form>
+             
                        {/* <label>
         <input
           type="checkbox"
