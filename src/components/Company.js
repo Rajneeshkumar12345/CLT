@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Company() {
+  const localNotes = localStorage.getItem("notes")
+   const[notes, setNotes] =useState(localNotes);
+
+   const handleChange = e => {
+    localStorage.setItem("notes", e.target.value);
+    setNotes(e.target.value);
+   }
   return (
     <>
       <div className="Company" style={{ backgroundColor: "#6df7d2" }}>
+        {/* PROFILE START HERE *****************/}
         <section>
           <div className="container">
             <div className="heading">
@@ -25,6 +33,8 @@ function Company() {
                   id="exampleFormControlTextarea1"
                   placeholder="Messege"
                   rows="4"
+                  value={notes}
+                  onChange={handleChange}
                   required
                   style={{ backgroundColor: "#f7abf0" }}
                 ></textarea>
@@ -33,6 +43,8 @@ function Company() {
           </div>
         </section>
 
+
+        {/* CULTURE START HERE *****************/}
         <section>
           <div className="container">
             <div className="heading">
@@ -52,7 +64,8 @@ function Company() {
             </div>
           </div>
         </section>
-
+         
+          {/* MISSION AND VISION START HERE *****************/}
         <section>
           <div className="container mt-5" style={{marginTop:"5rem"}}>
             <div className="py-3">
@@ -138,7 +151,7 @@ function Company() {
           </div>
         </section>
 
-
+         {/*  POLICY  START HERE *****************/}
         <section>
             <div className="container" style={{marginTop:"5rem"}}>
             <div className="heading">
@@ -164,6 +177,7 @@ function Company() {
            
         </section>
 
+        {/* CONCLUSION  AND VISION START HERE *****************/}
         <section>
             <div className="container" style={{marginTop:"5rem"}}>
             <div className="heading">
