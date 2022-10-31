@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocalStorage } from "./useLocalStorage";
+//import { useLocalStorage } from "./useLocalStorage";
 
 function Company() {
   // const localNotes = localStorage.getItem("notes")
@@ -10,8 +10,8 @@ function Company() {
   //   setNotes(e.target.value);
   //  }
 
-  const[name, setName] = useState("name2", "");
-  const[checked, setChecked] = useLocalStorage(false);
+  const[name, setName] = useState("");
+  //const[checked, setChecked] = useLocalStorage(false);
 
   return (
     <>
@@ -43,8 +43,18 @@ function Company() {
                   required
                   style={{ backgroundColor: "#f7abf0" }}
                 ></textarea>
+                       {/* <label>
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
+        />{" "}
+        Not a robot?
+      </label>
+      <input type="submit" value="Submit"></input> */}
               </div>
             </div>
+     
           </div>
         </section>
 
